@@ -1,14 +1,14 @@
 /* Base Styles */
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #F8F9FA;
-  color: #333333;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  background: #F1FAEE;
+  color: #1D3557;
   line-height: 1.6;
 }
 
 a {
-  color: #004080;
+  color: #E63946;
   text-decoration: none;
 }
 
@@ -18,7 +18,7 @@ a:hover {
 
 /* Header */
 header {
-  background: #004080;
+  background: #457B9D;
   color: #FFFFFF;
   display: flex;
   justify-content: space-between;
@@ -68,23 +68,24 @@ header nav ul li a {
 }
 
 .grid-buttons .grid-item {
-  background: #A52A2A;
+  background: #E63946;
   color: #FFFFFF;
   text-align: center;
   padding: 30px 20px;
   border-radius: 8px;
+  font-size: 18px;
   transition: transform 0.2s, background 0.3s;
   cursor: pointer;
 }
 
 .grid-buttons .grid-item:hover {
-  background: #8B0000;
+  background: #FFB703;
   transform: translateY(-5px);
 }
 
 /* Footer */
 footer {
-  background: #004080;
+  background: #457B9D;
   color: #FFFFFF;
   text-align: center;
   padding: 15px;
