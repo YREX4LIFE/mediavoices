@@ -1,93 +1,163 @@
-/* Base Styles */
-body {
+/* ===== GRID SYSTEM (from grid_styles.css) ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 0px;
+}
+.col-span-12 { grid-column: span 12; }
+.col-span-11 { grid-column: span 11; }
+.col-span-10 { grid-column: span 10; }
+.col-span-9  { grid-column: span 9; }
+.col-span-8  { grid-column: span 8; }
+.col-span-7  { grid-column: span 7; }
+.col-span-6  { grid-column: span 6; }
+.col-span-5  { grid-column: span 5; }
+.col-span-4  { grid-column: span 4; }
+.col-span-3  { grid-column: span 3; }
+.col-span-2  { grid-column: span 2; }
+.col-span-1  { grid-column: span 1; }
+@media screen and (max-width: 575px) {
+  .grid {
+    display: block;
+  }
+}
+
+/* ===== GENERAL STYLES ===== */
+* {
   margin: 0;
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-  background: #F1FAEE;
-  color: #1D3557;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
+  background-color: #fff;
+  color: #222;
 }
 
-a {
-  color: #E63946;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Header */
+/* ===== HEADER ===== */
 header {
-  background: #457B9D;
-  color: #FFFFFF;
+  background-color: #8B0000; /* Deep red */
+  color: #fff;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  flex-wrap: wrap;
 }
 
 header .logo {
-  font-size: 28px;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
 header nav ul {
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-header nav ul li {
-  margin-left: 20px;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 header nav ul li a {
-  color: #FFFFFF;
+  color: #fff;
+  text-decoration: none;
   font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Intro Section */
+header nav ul li a:hover {
+  background-color: #b22222; /* Slightly lighter red */
+  border-radius: 5px;
+}
+
+/* ===== INTRO SECTION ===== */
 .intro {
-  padding: 40px 20px;
-  max-width: 1000px;
+  padding: 2rem 1rem;
+  max-width: 1200px;
   margin: auto;
 }
 
 .intro p {
-  font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #444;
 }
 
-/* Grid Buttons */
+/* ===== GRID BUTTONS ===== */
 .grid-buttons {
+  max-width: 1200px;
+  margin: 2rem auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 40px 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 
 .grid-buttons .grid-item {
-  background: #E63946;
-  color: #FFFFFF;
-  text-align: center;
-  padding: 30px 20px;
+  position: relative;
+  overflow: hidden;
   border-radius: 8px;
-  font-size: 18px;
-  transition: transform 0.2s, background 0.3s;
-  cursor: pointer;
 }
 
-.grid-buttons .grid-item:hover {
-  background: #FFB703;
-  transform: translateY(-5px);
+.grid-buttons .grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(70%);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Footer */
-footer {
-  background: #457B9D;
-  color: #FFFFFF;
+.grid-buttons .grid-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(50%);
+}
+
+.grid-buttons .grid-item h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1.6rem;
   text-align: center;
-  padding: 15px;
-  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .grid-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .grid-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-buttons .grid-item h2 {
+    font-size: 1.3rem;
+  }
 }
